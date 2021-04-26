@@ -1,0 +1,17 @@
+First, I tried the following command:
+docker run -it --name depend ubuntu sh -c 'echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website;'
+Then, after inputting helsinki.fi, there was the error:
+sh: 1: curl: not found
+and the container stopped.
+
+Next, I do:
+docker start --attach -i depend
+In another terminal, I do:
+docker exec -it depend bash
+to enter the container. Inside the container, I do apt update and apt install curl, and exit.
+
+After this, in the first terminal (which is waiting for the input website), I input helsinki.fi, which then gives the desired output.
+
+Alternative solution: simply run the command below 
+docker run --rm -it --name depend ubuntu sh -c 'echo "Input website:"; read website; echo "Searching.."; sleep 1; apt-get -qq -y update; apt-get -qq -y install curl; curl http://$website;'
+and simply input helsinki.fi.

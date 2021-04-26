@@ -1,0 +1,6 @@
+touch text.log && docker run --rm -d -v "$(pwd)"/text.log:/usr/src/app/text.log devopsdockeruh/simple-web-service
+
+# If a previous mount failed (possibly due to WSL2 error because I forgot to create the text.log in the host directory, or any other reason), 
+I navigated to "/mnt/wsl/docker-desktop-bind-mounts" and deleted everything in there in order to get the command above working 
+(otherwise you cannot make it run no matter the command).
+# see https://github.com/docker/for-win/issues/9823

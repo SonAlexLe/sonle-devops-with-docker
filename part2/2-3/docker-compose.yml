@@ -1,0 +1,12 @@
+version: '3.5'
+
+# Assuming the two Dockerfiles in exercise 1.14 are in each project's directory
+services:
+  backend:
+      build: ./example-backend
+      ports:
+        - 8000:8000
+  frontend:
+      build: ./example-frontend
+      ports:
+        - 5000:5000

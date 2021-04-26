@@ -1,0 +1,6 @@
+devopsdockeruh/simple-web-service   ubuntu    4e3362e907d5   5 weeks ago   83MB
+devopsdockeruh/simple-web-service   alpine    fd312adc88e0   5 weeks ago   15.7MB
+
+the alpine image is much smaller than the ubuntu image.
+
+And of course the secret message is still being displayed every 10 second within the alpine image.

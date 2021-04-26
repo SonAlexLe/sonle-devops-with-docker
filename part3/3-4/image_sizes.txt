@@ -1,0 +1,16 @@
+# BEFORE
+
+REPOSITORY     TAG       IMAGE ID       CREATED          SIZE
+3-2_frontend   latest    f115407f6c78   6 minutes ago    343MB
+3-2_backend    latest    a0bbcba29998   11 minutes ago   447MB
+
+# AFTER
+
+REPOSITORY     TAG       IMAGE ID       CREATED              SIZE
+3-4_backend    latest    22acd7992232   About a minute ago   447MB
+3-4_frontend   latest    c472d4db07c7   About a minute ago   341MB
+
+As I was using FROM node-alpine and FROM golang-alpine from the beginning, the sizes did not change much.
+I only concatenated multiple RUN lines into one.
+
+However, the size of the backend is much larger than 351MB even when using golang-alpine image. My RUN layer accounted for 150MB.

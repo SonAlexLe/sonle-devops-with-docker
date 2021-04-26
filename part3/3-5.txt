@@ -1,0 +1,8 @@
+I do not need to modify anything for this exercise as I have always used alpine images for these exercises.
+
+REPOSITORY     TAG       IMAGE ID       CREATED          SIZE
+3-4_backend    latest    9e79aeaf4708   6 minutes ago    447MB
+3-4_frontend   latest    580768a3baec   6 minutes ago    341MB
+
+Only multistage builds can optimize these images.
+

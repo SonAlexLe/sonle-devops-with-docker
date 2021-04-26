@@ -1,0 +1,16 @@
+FROM golang:alpine
+
+WORKDIR /usr/src/app
+
+COPY . .
+
+EXPOSE 8000
+
+ENV PORT=8000 REQUEST_ORIGIN=http://localhost:5000
+
+RUN go build && \ 
+    adduser -D userapp
+
+USER userapp
+
+CMD ./server

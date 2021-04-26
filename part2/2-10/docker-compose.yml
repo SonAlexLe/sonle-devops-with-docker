@@ -1,0 +1,31 @@
+version: '3.7'
+
+# Assuming the two Dockerfiles from exercise 1.14 are in each project's directory (both unmodified since that exercise)
+services:
+    backend:
+        build: ./example-backend
+        environment:
+            - REDIS_HOST=redis
+            - POSTGRES_HOST=postgres
+        depends_on:
+            - postgres
+    frontend:
+        build: ./example-frontend
+        environment:
+            - REACT_APP_BACKEND_URL=http://localhost/api
+        command: sh -c "npm run build && serve -s -l 5000 build"
+    redis:
+        image: "redis:alpine"
+        restart: unless-stopped
+    postgres:
+        image: postgres
+        restart: unless-stopped
+        environment:
+            - POSTGRES_PASSWORD=postgres
+    nginx: 
+        image: nginx
+        volumes: 
+            - ./nginx.conf:/etc/nginx/nginx.conf
+        ports:
+            - 80:80
+            - 443:443

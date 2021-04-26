@@ -1,0 +1,9 @@
+#### COMMANDS
+
+docker build ./example-frontend -t example-frontend -f Dockerfile-frontend
+
+docker build ./example-backend -t example-backend -f Dockerfile-backend
+
+docker run -p 5000:5000 -d --rm example-frontend
+
+docker run -p 8000:8000 -d --rm example-backend
